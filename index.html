@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>気象庁 — マイリンク集</title>
+  <title>気象 — マイリンク集</title>
   <style>
     :root{--bg:#0f1720;--card:#0b1220;--muted:#9aa6b2;--accent:#38bdf8}
     body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; margin:0;background:linear-gradient(180deg,#071022 0%,#071627 100%);color:#e6eef6}
@@ -25,8 +25,8 @@
 </head>
 <body>
   <header>
-    <h1>気象庁 — マイリンク集</h1>
-    <p class="lead">よく見る気象庁ページをここにまとめてワンクリックで開けます。検索で絞り込み可能。</p>
+    <h1>気象 — リンク集</h1>
+    <p class="lead">よく見る気象関連ページをここにまとめてワンクリックで開けます。検索で絞り込み可能。</p>
   </header>
   <main>
     <div class="controls">
@@ -45,21 +45,43 @@
         </div>
       </section>
 
-      <section class="card" data-tags="防災 警報 注意報">
-        <h3>気象警報・注意報（防災情報）</h3>
-        <p class="small">地域ごとの警報・注意報の一覧／早期注意情報等。</p>
+      <section class="card" data-tags="雨雲レーダー">
+        <h3>レーダー画像</h3>
+        <p class="small">リアルタイムと数時間～十数時間先のレーダー画像</p>
         <div class="links">
-          <a class="btn" href="https://www.jma.go.jp/bosai/warning/" target="_blank" rel="noopener">開く</a>
-          <a class="btn" href="https://www.jma.go.jp/jma/menu/menuflash.html" target="_blank" rel="noopener">防災メニュー</a>
+          <a class="btn" href="https://www.jma.go.jp/bosai/nowc/#zoom:8/lat:34.325292/lon:131.888123/colordepth:normal/elements:hrpns&slmcs&slmcs_fcst" target="_blank" rel="noopener">高解像レーダー画像(3時間前～1時間先)</a>
+          <a class="btn" href="https://www.jma.go.jp/bosai/kaikotan/#zoom:8/lat:34.325292/lon:131.888123/colordepth:normal/elements:rasrf&slmcs&slmcs_fcst" target="_blank" rel="noopener">レーダー画像(12時間前～12時間先)</a>
+          <a class="btn" href="https://www.jma.go.jp/bosai/nowc/#lat:34.207259/lon:131.954041/zoom:8/colordepth:deep/elements:thns&liden" target="_blank" rel="noopener">発雷履歴・雷活動度</a>
+          <a class="btn" href="https://www.teideninfo.energia.co.jp/" target="_blank" rel="noopener">中国電力停電情報</a>
+       </div>
+      </section>
+
+      <section class="card" data-tags="天気予報">
+        <h3>天気予報</h3>
+        <p class="small">週間天気予報</p>
+        <div class="links">
+          <a class="btn" href="https://www.jma.go.jp/bosai/forecast/#area_type=class20s&area_code=3520300" target="_blank" rel="noopener">週間天気予報_山口県中部</a>
+          <a class="btn" href="https://www.jma.go.jp/bosai/wdist/timeseries.html#area_type=offices&area_code=350000" target="_blank" rel="noopener">時系列予報_山口県</a>
         </div>
       </section>
+
+      <section class="card" data-tags="防災情報">
+        <h3>防災情報</h3>
+        <p class="small">現在発表中の防災情報</p>
+        <div class="links">
+          <a class="btn" href="https://www.jma.go.jp/bosai/map.html#8/34.191/131.801/&elem=all&contents=warning" target="_blank" rel="noopener">注意報・警報マップ</a>
+          <a class="btn" href="https://www.jma.go.jp/bosai/warning/#area_type=class20s&area_code=3520700&lang=ja" target="_blank" rel="noopener">下松市に発表中の注意報・警報</a>
+          <a class="btn" href="https://www.jma.go.jp/bosai/warning/#area_type=class20s&area_code=4013000&lang=ja" target="_blank" rel="noopener">福岡市に発表中の注意報・警報</a>
+        </div>
+      </section>
+
 
       <section class="card" data-tags="地震 津波 震度">
         <h3>地震情報（地震マップ／速報）</h3>
         <p class="small">最新の地震発生情報・震度分布・推計震度など。</p>
         <div class="links">
-          <a class="btn" href="https://www.jma.go.jp/bosai/map.html" target="_blank" rel="noopener">地震マップを開く</a>
           <a class="btn" href="https://www.data.jma.go.jp/multi/quake/index.html?lang=jp" target="_blank" rel="noopener">地震データ一覧</a>
+          <a class="btn" href="https://kotoho7.github.io/scratch-realtime-earthquake-viewer-page/" target="_blank" rel="noopener">リアルタイム地震ビューアー</a>
         </div>
       </section>
 
@@ -71,25 +93,7 @@
           <a class="btn" href="https://www.data.jma.go.jp/multi/cyclone/index.html?lang=jp" target="_blank" rel="noopener">台風（詳細）</a>
         </div>
       </section>
-
-      <section class="card" data-tags="雨雲 レーダー 今後の雨">
-        <h3>雨雲の動き / 今後の雨（降水）</h3>
-        <p class="small">短時間の雨雲レーダーや予想（軽量版も利用可）。</p>
-        <div class="links">
-          <a class="btn" href="https://www.jma.go.jp/jp/radnowc/" target="_blank" rel="noopener">雨雲の動き（レーダー）</a>
-          <a class="btn" href="https://www.jma.go.jp/jma/menu/menuflash.html" target="_blank" rel="noopener">今後の雨（メニュー）</a>
-        </div>
-      </section>
-
-      <section class="card" data-tags="衛星 画像 実況天気図">
-        <h3>衛星画像・実況天気図</h3>
-        <p class="small">衛星画像と実況天気図（天候の広域把握用）。</p>
-        <div class="links">
-          <a class="btn" href="https://www.jma.go.jp/jp/gms/" target="_blank" rel="noopener">衛星画像</a>
-          <a class="btn" href="https://www.jma.go.jp/jp/gmap/" target="_blank" rel="noopener">実況天気図</a>
-        </div>
-      </section>
-
+    
     </div>
 
     <p class="small" style="margin-top:14px">このファイルはローカルに保存してブラウザで開くか、Webサーバに置いてブックマークとして使えます。編集はこのHTMLを直接書き換えてください。</p>
