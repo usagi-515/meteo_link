@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>気象庁 — マイリンク集</title>
+  <style>
+    :root{--bg:#0f1720;--card:#0b1220;--muted:#9aa6b2;--accent:#38bdf8}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; margin:0;background:linear-gradient(180deg,#071022 0%,#071627 100%);color:#e6eef6}
+    header{padding:20px 24px;border-bottom:1px solid rgba(255,255,255,0.04)}
+    h1{margin:0;font-size:20px}
+    p.lead{margin:6px 0 0;color:var(--muted);font-size:13px}
+    main{max-width:980px;margin:28px auto;padding:0 18px}
+    .controls{display:flex;gap:8px;align-items:center;margin-bottom:12px}
+    input[type=search]{flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.02);color:inherit}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+    .card{background:rgba(255,255,255,0.02);padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.02)}
+    .card h3{margin:0 0 8px;font-size:15px}
+    .card p{margin:0;color:var(--muted);font-size:13px}
+    .links{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+    .btn{padding:6px 10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.06);font-size:13px;color:var(--accent);text-decoration:none}
+    footer{max-width:980px;margin:18px auto;padding:8px 18px;color:var(--muted);font-size:13px}
+    .small{font-size:12px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>気象庁 — マイリンク集</h1>
+    <p class="lead">よく見る気象庁ページをここにまとめてワンクリックで開けます。検索で絞り込み可能。</p>
+  </header>
+  <main>
+    <div class="controls">
+      <input id="q" type="search" placeholder="リンクを検索（例: 台風, 地震, レーダー）" oninput="filter()" />
+      <a class="btn" href="#" onclick="resetFilter();return false;">クリア</a>
+      <a class="btn" id="openAll" href="#" onclick="openAll();return false;">すべて新しいタブで開く</a>
+    </div>
+
+    <div id="grid" class="grid">
+
+      <section class="card" data-tags="トップ ホーム">
+        <h3>気象庁トップ</h3>
+        <p class="small">公式トップページ（最新の警報・地震・台風などの入口）</p>
+        <div class="links">
+          <a class="btn" href="https://www.jma.go.jp/" target="_blank" rel="noopener">開く</a>
+        </div>
+      </section>
+
+      <section class="card" data-tags="防災 警報 注意報">
+        <h3>気象警報・注意報（防災情報）</h3>
+        <p class="small">地域ごとの警報・注意報の一覧／早期注意情報等。</p>
+        <div class="links">
+          <a class="btn" href="https://www.jma.go.jp/bosai/warning/" target="_blank" rel="noopener">開く</a>
+          <a class="btn" href="https://www.jma.go.jp/jma/menu/menuflash.html" target="_blank" rel="noopener">防災メニュー</a>
+        </div>
+      </section>
+
+      <section class="card" data-tags="地震 津波 震度">
+        <h3>地震情報（地震マップ／速報）</h3>
+        <p class="small">最新の地震発生情報・震度分布・推計震度など。</p>
+        <div class="links">
+          <a class="btn" href="https://www.jma.go.jp/bosai/map.html" target="_blank" rel="noopener">地震マップを開く</a>
+          <a class="btn" href="https://www.data.jma.go.jp/multi/quake/index.html?lang=jp" target="_blank" rel="noopener">地震データ一覧</a>
+        </div>
+      </section>
+
+      <section class="card" data-tags="台風 進路 情報">
+        <h3>台風情報</h3>
+        <p class="small">台風の実況・予報、暴風域確率、詳細ページへ。</p>
+        <div class="links">
+          <a class="btn" href="https://www.jma.go.jp/bosai/typhoon/" target="_blank" rel="noopener">台風トップ</a>
+          <a class="btn" href="https://www.data.jma.go.jp/multi/cyclone/index.html?lang=jp" target="_blank" rel="noopener">台風（詳細）</a>
+        </div>
+      </section>
+
+      <section class="card" data-tags="雨雲 レーダー 今後の雨">
+        <h3>雨雲の動き / 今後の雨（降水）</h3>
+        <p class="small">短時間の雨雲レーダーや予想（軽量版も利用可）。</p>
+        <div class="links">
+          <a class="btn" href="https://www.jma.go.jp/jp/radnowc/" target="_blank" rel="noopener">雨雲の動き（レーダー）</a>
+          <a class="btn" href="https://www.jma.go.jp/jma/menu/menuflash.html" target="_blank" rel="noopener">今後の雨（メニュー）</a>
+        </div>
+      </section>
+
+      <section class="card" data-tags="衛星 画像 実況天気図">
+        <h3>衛星画像・実況天気図</h3>
+        <p class="small">衛星画像と実況天気図（天候の広域把握用）。</p>
+        <div class="links">
+          <a class="btn" href="https://www.jma.go.jp/jp/gms/" target="_blank" rel="noopener">衛星画像</a>
+          <a class="btn" href="https://www.jma.go.jp/jp/gmap/" target="_blank" rel="noopener">実況天気図</a>
+        </div>
+      </section>
+
+    </div>
+
+    <p class="small" style="margin-top:14px">このファイルはローカルに保存してブラウザで開くか、Webサーバに置いてブックマークとして使えます。編集はこのHTMLを直接書き換えてください。</p>
+  </main>
+  <footer>
+    <div>作成日: <!-- scriptで埋める --> <span id="date"></span></div>
+    <div class="small">カスタマイズ: 欲しい追加リンク・アイコン・自動更新（RSS/JSON）などを追加できます。</div>
+  </footer>
+
+  <script>
+    document.getElementById('date').textContent = new Date().toLocaleString();
+    function filter(){
+      const q = document.getElementById('q').value.toLowerCase();
+      document.querySelectorAll('#grid .card').forEach(card => {
+        const tags = card.getAttribute('data-tags') || '';
+        const text = (card.innerText || '').toLowerCase();
+        const ok = tags.includes(q) || text.includes(q) || q === '';
+        card.style.display = ok ? 'block' : 'none';
+      });
+    }
+    function resetFilter(){document.getElementById('q').value='';filter();}
+    function openAll(){
+      document.querySelectorAll('#grid .card a.btn').forEach(a=>{window.open(a.href,'_blank');});
+    }
+  </script>
+</body>
+</html>
