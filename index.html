@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
   <title>気象 — マイリンク集</title>
   <style>
     :root{--bg:#0f1720;--card:#0b1220;--muted:#9aa6b2;--accent:#38bdf8}
@@ -107,8 +108,25 @@
         </div>
       </section>
     
-    </div>
+      <section class="card" data-tags="航空気象情報">
+        <h3>航空気象情報</h3>
+        <p class="small">航空機向けの気象情報</p>
+        <div class="links"> 
+          <a class="btn" href="https://www.data.jma.go.jp/airinfo/data/awfo_taf.html#contents_area2" target="_blank" rel="noopener">TAF(飛行場時系列予報)</a>
+          <a class="btn" href="https://metar-taf.com/history/RJFF" target="_blank" rel="noopener">METAR_RJFF</a>
+          <a class="btn" href="https://www.flightradar24.com/" target="_blank" rel="noopener">flightradar24</a>
+        </div>
+      </section> 
 
+      <section class="card" data-tags="数値予報資料">
+        <h3>数値予報資料</h3>
+        <p class="small">気象庁の数値予報GPV資料</p>
+        <div class="links"> 
+          <a class="btn" href="https://tingala.net/gpv-map/msm-region/msm_iwk.php" target="_blank" rel="noopener">MSM_西日本</a>
+        </div>
+      </section>
+      
+    </div>
     <p class="small" style="margin-top:14px">このファイルはローカルに保存してブラウザで開くか、Webサーバに置いてブックマークとして使えます。編集はこのHTMLを直接書き換えてください。</p>
   </main>
   <footer>
@@ -134,4 +152,3 @@
   </script>
 </body>
 </html>
-
